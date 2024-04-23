@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Find Missing Number</h2>
+
+<p id="demo"></p>
+
+<script>
+let arr = [11,12,14,15,16,18,19,20];
+let n = arr.length + 1;
+let total = (n * (n + 1)) / 2;
+let sum = arr.reduce((a, b) => a + b, 0);
+let missingNumber = total - sum;
+
+document.getElementById("demo").innerHTML = "The missing number is: " + missingNumber;
+</script>
+
+</body>
+</html>

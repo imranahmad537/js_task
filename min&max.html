@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Minimum and Maximum Numbers in Array</title>
+  </head>
+  <body>
+    <h1>Minimum and Maximum Numbers in Array</h1>
+    <form id="arrayForm">
+      <label for="arrayInput">Enter array values (comma-separated): </label><br />
+      <input type="text" id="arrayInput" name="arrayInput" /><br />
+      <button type="submit">Find Min and Max</button>
+    </form>
+    <div id="result"></div>
+  </body>
+  <script>
+    const arrayForm = document.getElementById("arrayForm");
+const arrayInput = document.getElementById("arrayInput");
+const result = document.getElementById("result");
+
+arrayForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  const arrayValues = arrayInput.value.split(",").map(Number);
+
+  if (arrayValues.length === 0) {
+    result.textContent = "Please enter at least one array value.";
+    return;
+  }
+
+  let minValue = Infinity;
+  let maxValue = -Infinity;
+
+  for (let i = 0; i < arrayValues.length; i++) {
+    if (arrayValues[i] < minValue) {
+      minValue = arrayValues[i];
+    }
+    if (arrayValues[i] > maxValue) {
+      maxValue = arrayValues[i];
+    }
+  }
+
+  result.textContent = `Minimum value: ${minValue}\nMaximum value: ${maxValue}`;
+});
+  </script>
+</html>
